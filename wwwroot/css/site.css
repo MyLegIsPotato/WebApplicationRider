@@ -1,5 +1,9 @@
-html {
-  font-size: 14px;
+:root {
+  --jet: #333333ff;
+  --chartreuse: #7fff00ff;
+  --silver: #ccccccff;
+  --vanilla: #ffedb3ff;
+  --cobalt-blue: #0047abff;
 }
 
 @media (min-width: 768px) {
@@ -13,10 +17,13 @@ html {
 }
 
 html {
+  font-size: 14px;
   position: relative;
   min-height: 100%;
 }
 
 body {
   margin-bottom: 60px;
+  background-color: var(--silver);
+  color: var(--jet);
 }

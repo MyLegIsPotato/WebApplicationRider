@@ -1,0 +1,10 @@
+﻿.btn{
+    background-color: var(--jet);
+    border-color: var(--jet);
+    color: var(--vanilla);
+}
+
+.btn:hover{
+    background-color: var(--vanilla);
+    color: var(--jet);
+}
