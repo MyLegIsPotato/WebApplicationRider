@@ -1,0 +1,9 @@
+﻿@if (TempData["result"] != null)
+{
+    <h2>@TempData["result"]</h2>
+}
+
+@if (TempData["error"] != null)
+{
+    <h2>@TempData["error"]</h2>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BlogPost>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<table class="w-auto">
+    <tr>
+        <td>
+            <h2>Blog Posts?</h2>
+        </td>
+        <td>
+            <a asp-area="" asp-controller="BlogPost" asp-action="Create"><button class="btn btn-primary">New Post</button></a>
+        </td>
+    </tr>
+</table>
+
+@foreach (var post in Model)
+{
+    <div class="container-xl blogPost w-auto">
+        <h1>@post.Title</h1>
+        <h4>@post.CreatedDateTime</h4>
+        <h4>@post.Category.Name</h4>
+        <hl></hl>
+        <p>@post.Body</p>
+        <br/>
+    </div>
+}
