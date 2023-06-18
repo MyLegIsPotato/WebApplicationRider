@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WebApplicationRider.Models;
 
 namespace WebApplicationRider.Data;
 
-public partial class ApplicationDbContext : DbContext
+public partial class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext()
     {
@@ -25,6 +26,10 @@ public partial class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         OnModelCreatingPartial(modelBuilder);
+        modelBuilder.Entity<IdentityUserLogin<string>>().HasNoKey();
+        modelBuilder.Entity<IdentityUserRole<string>>().HasKey(role => new { role.UserId, role.RoleId });
+        modelBuilder.Entity<IdentityUserToken<string>>()
+            .HasKey(token => new { token.UserId, token.LoginProvider, token.Name });
         modelBuilder.Entity<Category>().ToTable("Category");
         modelBuilder.Entity<BlogPost>().ToTable("BlogPost");
         modelBuilder.Entity<BlogPost>()

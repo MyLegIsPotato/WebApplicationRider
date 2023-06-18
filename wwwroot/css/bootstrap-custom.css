@@ -10,8 +10,19 @@
 }
 
 .blogPost{
+    background-color: var(--vanilla);
     border: 2px solid var(--jet);
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
+}
+
+.blogPost > h1{
+    color: var(--silver);
+    /* add a smooth drop shadow to text*/
+    text-shadow: 2px 2px 2px var(--jet);
+}
+
+hr{
+    border-color: var(--jet);
 }
